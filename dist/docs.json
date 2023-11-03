@@ -1,0 +1,662 @@
+{
+  "api": {
+    "name": "SubscriptionsPlugin",
+    "slug": "subscriptionsplugin",
+    "docs": "",
+    "tags": [],
+    "methods": [
+      {
+        "name": "echo",
+        "signature": "(options: { value: string; }) => Promise<{ value: string; }>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ value: string; }"
+          }
+        ],
+        "returns": "Promise<{ value: string; }>",
+        "tags": [],
+        "docs": "A test method which just returns what is passed in",
+        "complexTypes": [],
+        "slug": "echo"
+      },
+      {
+        "name": "getProductDetails",
+        "signature": "(options: { productIdentifier: string; }) => Promise<ProductDetailsResponse>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ productIdentifier: string; }"
+          }
+        ],
+        "returns": "Promise<ProductDetailsResponse>",
+        "tags": [
+          {
+            "name": "param",
+            "text": "options.productId The product ID to lookup"
+          }
+        ],
+        "docs": "Receives a product ID and returns the product details",
+        "complexTypes": [
+          "ProductDetailsResponse"
+        ],
+        "slug": "getproductdetails"
+      },
+      {
+        "name": "purchaseProduct",
+        "signature": "(options: { productIdentifier: string; }) => Promise<PurchaseProductResponse>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ productIdentifier: string; }"
+          }
+        ],
+        "returns": "Promise<PurchaseProductResponse>",
+        "tags": [
+          {
+            "name": "param",
+            "text": "options.productId contains the productIdentifier"
+          }
+        ],
+        "docs": "Receives the product ID which the user wants to purchase and returns the transaction ID",
+        "complexTypes": [
+          "PurchaseProductResponse"
+        ],
+        "slug": "purchaseproduct"
+      },
+      {
+        "name": "getCurrentEntitlements",
+        "signature": "() => Promise<CurrentEntitlementsResponse>",
+        "parameters": [],
+        "returns": "Promise<CurrentEntitlementsResponse>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "CurrentEntitlementsResponse"
+        ],
+        "slug": "getcurrententitlements"
+      },
+      {
+        "name": "getLatestTransaction",
+        "signature": "(options: { productIdentifier: string; }) => Promise<LatestTransactionResponse>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ productIdentifier: string; }"
+          }
+        ],
+        "returns": "Promise<LatestTransactionResponse>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "LatestTransactionResponse"
+        ],
+        "slug": "getlatesttransaction"
+      },
+      {
+        "name": "manageSubscriptions",
+        "signature": "() => any",
+        "parameters": [],
+        "returns": "any",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "managesubscriptions"
+      },
+      {
+        "name": "setGoogleVerificationDetails",
+        "signature": "(options: { googleVerifyEndpoint: string; bid: string; }) => void",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ googleVerifyEndpoint: string; bid: string; }"
+          }
+        ],
+        "returns": "void",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "setgoogleverificationdetails"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: 'ANDROID-PURCHASE-RESPONSE', listenerFunc: (response: AndroidPurchasedTrigger) => void) => Promise<PluginListenerHandle> & PluginListenerHandle",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'ANDROID-PURCHASE-RESPONSE'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "(response: AndroidPurchasedTrigger) => void"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle> & PluginListenerHandle",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "PluginListenerHandle",
+          "AndroidPurchasedTrigger"
+        ],
+        "slug": "addlistenerandroid-purchase-response"
+      }
+    ],
+    "properties": []
+  },
+  "interfaces": [
+    {
+      "name": "ProductDetailsResponse",
+      "slug": "productdetailsresponse",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "responseCode",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "ProductDetailsResponseCode"
+          ],
+          "type": "ProductDetailsResponseCode"
+        },
+        {
+          "name": "responseMessage",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "ProductDetailsResponseMessage"
+          ],
+          "type": "ProductDetailsResponseMessage"
+        },
+        {
+          "name": "data",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "Product"
+          ],
+          "type": "Product"
+        }
+      ]
+    },
+    {
+      "name": "Product",
+      "slug": "product",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "productIdentifier",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "price",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "displayName",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "PurchaseProductResponse",
+      "slug": "purchaseproductresponse",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "responseCode",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "PurchaseProductIOSResponseCode",
+            "PurchaseProductAndroidResponseCode"
+          ],
+          "type": "0 | 1 | 2 | 5 | 4 | 3 | -1"
+        },
+        {
+          "name": "responseMessage",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "PurchaseProductIOSResponseMessage",
+            "PurchaseProductAndroidResponseMessage"
+          ],
+          "type": "'Incompatible with web' | 'Could not find a product matching the given productIdentifier' | 'Successfully purchased product' | 'Product seems to have been purchased but the transaction failed verification' | 'User closed the native popover before purchasing' | 'Product request made but is currently pending - likely due to parental restrictions' | 'An unknown error occurred whilst in the purchasing process' | 'Successfully opened native popover' | 'Failed to open native popover'"
+        }
+      ]
+    },
+    {
+      "name": "CurrentEntitlementsResponse",
+      "slug": "currententitlementsresponse",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "responseCode",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "CurrentEntitlementsResponseCode"
+          ],
+          "type": "CurrentEntitlementsResponseCode"
+        },
+        {
+          "name": "responseMessage",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "CurrentEntitlementsResponseMessage"
+          ],
+          "type": "CurrentEntitlementsResponseMessage"
+        },
+        {
+          "name": "data",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "Transaction"
+          ],
+          "type": "Transaction[] | undefined"
+        }
+      ]
+    },
+    {
+      "name": "Transaction",
+      "slug": "transaction",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "productIdentifier",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "expiryDate",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "originalId",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "transactionId",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "originalStartDate",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "isTrial",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        }
+      ]
+    },
+    {
+      "name": "LatestTransactionResponse",
+      "slug": "latesttransactionresponse",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "responseCode",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "LatestTransactionResponseCode"
+          ],
+          "type": "LatestTransactionResponseCode"
+        },
+        {
+          "name": "responseMessage",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "LatestTransactionResponseMessage"
+          ],
+          "type": "LatestTransactionResponseMessage"
+        },
+        {
+          "name": "data",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "Transaction"
+          ],
+          "type": "Transaction"
+        }
+      ]
+    },
+    {
+      "name": "PluginListenerHandle",
+      "slug": "pluginlistenerhandle",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "remove",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "() => Promise<void>"
+        }
+      ]
+    },
+    {
+      "name": "AndroidPurchasedTrigger",
+      "slug": "androidpurchasedtrigger",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "fired",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "boolean"
+        }
+      ]
+    }
+  ],
+  "enums": [],
+  "typeAliases": [
+    {
+      "name": "ProductDetailsResponseCode",
+      "slug": "productdetailsresponsecode",
+      "docs": "",
+      "types": [
+        {
+          "text": "-1",
+          "complexTypes": []
+        },
+        {
+          "text": "0",
+          "complexTypes": []
+        },
+        {
+          "text": "1",
+          "complexTypes": []
+        }
+      ]
+    },
+    {
+      "name": "ProductDetailsResponseMessage",
+      "slug": "productdetailsresponsemessage",
+      "docs": "",
+      "types": [
+        {
+          "text": "\"Incompatible with web\"",
+          "complexTypes": []
+        },
+        {
+          "text": "\"Successfully found the product details for given productIdentifier\"",
+          "complexTypes": []
+        },
+        {
+          "text": "\"Could not find a product matching the given productIdentifier\"",
+          "complexTypes": []
+        }
+      ]
+    },
+    {
+      "name": "PurchaseProductIOSResponseCode",
+      "slug": "purchaseproductiosresponsecode",
+      "docs": "",
+      "types": [
+        {
+          "text": "-1",
+          "complexTypes": []
+        },
+        {
+          "text": "0",
+          "complexTypes": []
+        },
+        {
+          "text": "1",
+          "complexTypes": []
+        },
+        {
+          "text": "2",
+          "complexTypes": []
+        },
+        {
+          "text": "3",
+          "complexTypes": []
+        },
+        {
+          "text": "4",
+          "complexTypes": []
+        },
+        {
+          "text": "5",
+          "complexTypes": []
+        }
+      ]
+    },
+    {
+      "name": "PurchaseProductAndroidResponseCode",
+      "slug": "purchaseproductandroidresponsecode",
+      "docs": "",
+      "types": [
+        {
+          "text": "-1",
+          "complexTypes": []
+        },
+        {
+          "text": "0",
+          "complexTypes": []
+        },
+        {
+          "text": "1",
+          "complexTypes": []
+        }
+      ]
+    },
+    {
+      "name": "PurchaseProductIOSResponseMessage",
+      "slug": "purchaseproductiosresponsemessage",
+      "docs": "",
+      "types": [
+        {
+          "text": "\"Incompatible with web\"",
+          "complexTypes": []
+        },
+        {
+          "text": "\"Successfully purchased product\"",
+          "complexTypes": []
+        },
+        {
+          "text": "\"Could not find a product matching the given productIdentifier\"",
+          "complexTypes": []
+        },
+        {
+          "text": "\"Product seems to have been purchased but the transaction failed verification\"",
+          "complexTypes": []
+        },
+        {
+          "text": "\"User closed the native popover before purchasing\"",
+          "complexTypes": []
+        },
+        {
+          "text": "\"Product request made but is currently pending - likely due to parental restrictions\"",
+          "complexTypes": []
+        },
+        {
+          "text": "\"An unknown error occurred whilst in the purchasing process\"",
+          "complexTypes": []
+        }
+      ]
+    },
+    {
+      "name": "PurchaseProductAndroidResponseMessage",
+      "slug": "purchaseproductandroidresponsemessage",
+      "docs": "",
+      "types": [
+        {
+          "text": "\"Incompatible with web\"",
+          "complexTypes": []
+        },
+        {
+          "text": "\"Successfully opened native popover\"",
+          "complexTypes": []
+        },
+        {
+          "text": "\"Failed to open native popover\"",
+          "complexTypes": []
+        }
+      ]
+    },
+    {
+      "name": "CurrentEntitlementsResponseCode",
+      "slug": "currententitlementsresponsecode",
+      "docs": "",
+      "types": [
+        {
+          "text": "-1",
+          "complexTypes": []
+        },
+        {
+          "text": "0",
+          "complexTypes": []
+        },
+        {
+          "text": "1",
+          "complexTypes": []
+        },
+        {
+          "text": "2",
+          "complexTypes": []
+        }
+      ]
+    },
+    {
+      "name": "CurrentEntitlementsResponseMessage",
+      "slug": "currententitlementsresponsemessage",
+      "docs": "",
+      "types": [
+        {
+          "text": "\"Incompatible with web\"",
+          "complexTypes": []
+        },
+        {
+          "text": "\"Successfully found all entitlements across all product types\"",
+          "complexTypes": []
+        },
+        {
+          "text": "\"No entitlements were found\"",
+          "complexTypes": []
+        },
+        {
+          "text": "\"Unknown problem trying to retrieve entitlements\"",
+          "complexTypes": []
+        }
+      ]
+    },
+    {
+      "name": "LatestTransactionResponseCode",
+      "slug": "latesttransactionresponsecode",
+      "docs": "",
+      "types": [
+        {
+          "text": "-1",
+          "complexTypes": []
+        },
+        {
+          "text": "0",
+          "complexTypes": []
+        },
+        {
+          "text": "1",
+          "complexTypes": []
+        },
+        {
+          "text": "2",
+          "complexTypes": []
+        },
+        {
+          "text": "3",
+          "complexTypes": []
+        }
+      ]
+    },
+    {
+      "name": "LatestTransactionResponseMessage",
+      "slug": "latesttransactionresponsemessage",
+      "docs": "",
+      "types": [
+        {
+          "text": "\"Incompatible with web\"",
+          "complexTypes": []
+        },
+        {
+          "text": "\"Successfully found the latest transaction matching given productIdentifier\"",
+          "complexTypes": []
+        },
+        {
+          "text": "\"Could not find a product matching the given productIdentifier\"",
+          "complexTypes": []
+        },
+        {
+          "text": "\"No transaction for given productIdentifier, or it could not be verified\"",
+          "complexTypes": []
+        },
+        {
+          "text": "\"Unknown problem trying to retrieve latest transaction\"",
+          "complexTypes": []
+        }
+      ]
+    }
+  ],
+  "pluginConfigs": []
+}
