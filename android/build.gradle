@@ -22,6 +22,7 @@ apply plugin: 'com.android.library'
 //apply plugin: 'kotlin-android'
 
 android {
+    namespace "com.capacitor-subscriptions.test"
     compileSdkVersion project.hasProperty('compileSdkVersion') ? rootProject.ext.compileSdkVersion : 30
     defaultConfig {
         minSdkVersion project.hasProperty('minSdkVersion') ? rootProject.ext.minSdkVersion : 21
