@@ -312,8 +312,11 @@ import UIKit
 
         do {
             let products = try await Product.products(for: [productIdentifier]);
-            let product = products[0] ? products[0] : nil;
-            return product;
+            if (products.count > 0) {
+                let product = products[0];
+                return product;
+            }
+            return nil
         } catch {
             return nil;
         }

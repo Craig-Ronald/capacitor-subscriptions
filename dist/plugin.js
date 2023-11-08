@@ -47,8 +47,6 @@ var capacitorSubscriptions = (function (exports, core) {
 
     exports.Subscriptions = Subscriptions;
 
-    Object.defineProperty(exports, '__esModule', { value: true });
-
     return exports;
 
 })({}, capacitorExports);
