@@ -417,30 +417,4 @@ public class Subscriptions {
         // because something went wrong
         return null;
     }
-
-    public void startTrial(String bid, Integer lengthInDays, PluginCall call) {
-
-        try {
-            String advertisingID = AdvertisingIdClient.getAdvertisingIdInfo(this.context.getApplicationContext()).toString();
-
-            // Update server using endpoint call with bid, ad_id and the date {lengthInDays} from now
-            Integer result = this.writeTrialDataToServer(bid, advertisingID);
-
-            JSObject response = new JSObject();
-            if(result == 0) {
-                response.put("responseCode", 0);
-                response.put("responseMessage", "Started trial successfully");
-            } else {
-                response.put("responseCode", 1);
-                response.put("responseMessage", "Trial failed to start");
-            }
-
-            call.resolve(response);
-            Log.i("advertisingID", advertisingID);
-
-        } catch (Exception e) {
-            Log.i("ADID-ERROR", e.toString());
-        }
-
-    }
 }

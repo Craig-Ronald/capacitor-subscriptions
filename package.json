@@ -1,6 +1,6 @@
 {
-  "name": "capacitor-subscriptions",
-  "version": "0.1",
+  "name": "@capacitor-community/capacitor-subscriptions",
+  "version": "1.0.0",
   "description": "A capacitor plugin which simplifies subscription handling - implementing StoreKit 2 and Google Billing",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
