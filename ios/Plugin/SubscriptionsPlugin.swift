@@ -16,7 +16,7 @@ public class SubscriptionsPlugin: CAPPlugin {
         let value = call.getString("value") ?? ""
         
         call.resolve([
-            "value": implementation.echo(value)
+            "value": value
         ])
     }
 
