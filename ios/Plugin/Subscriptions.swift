@@ -189,7 +189,7 @@ import UIKit
 //             Otherwise - no entitlements were found
             } else {
                 return [
-                    "responseCode": 404,
+                    "responseCode": 1,
                     "responseMessage": "No entitlements were found",
                 ]
             }
@@ -197,7 +197,7 @@ import UIKit
         } catch {
             print(error.localizedDescription)
             return [
-                "responseCode": 504,
+                "responseCode": 2,
                 "responseMessage": "Unknown problem trying to retrieve entitlements"
             ]
         }
