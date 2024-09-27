@@ -145,7 +145,7 @@
           "PluginListenerHandle",
           "AndroidPurchasedTrigger"
         ],
-        "slug": "addlistenerandroid-purchase-response"
+        "slug": "addlistenerandroid-purchase-response-"
       }
     ],
     "properties": []
@@ -382,15 +382,7 @@
       "docs": "",
       "tags": [],
       "methods": [],
-      "properties": [
-        {
-          "name": "remove",
-          "tags": [],
-          "docs": "",
-          "complexTypes": [],
-          "type": "() => Promise<void>"
-        }
-      ]
+      "properties": []
     },
     {
       "name": "AndroidPurchasedTrigger",
